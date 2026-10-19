@@ -1,0 +1,18 @@
+---
+layout: default
+---
+<article class="post">
+
+  <header class="post-header">
+    <p class="post-path" aria-hidden="true"><span class="ps1">$</span>cd ~{{ page.url }}</p>
+    <h1 class="post-title">{{ page.title | escape }}</h1>
+    {%- if page.subtitle %}
+    <p class="post-subtitle">{{ page.subtitle | escape }}</p>
+    {%- endif %}
+  </header>
+
+  <div class="post-content">
+    {{ content }}
+  </div>
+
+</article>

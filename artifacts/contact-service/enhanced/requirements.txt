@@ -1,0 +1,6 @@
+pymongo==4.18.3
+python-dotenv==1.2.4
+
+# Testing
+pytest==9.1.1
+mongomock==4.3.0

@@ -1,0 +1,16 @@
+START
+Sort animals by the search field
+Get the search input from user
+Set first and last data from the dataset
+WHILE first data is less than or equal to last data:
+	Set middle data
+	IF middle value is equal to search input:
+		return middle value
+	ELSE IF search input value is less than middle value:
+		Search left half
+	ELSE
+		Search right half
+	END IF
+END WHILE
+Return “Animal not found”
+END

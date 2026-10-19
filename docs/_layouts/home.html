@@ -1,0 +1,52 @@
+---
+layout: default
+---
+
+<div class="home">
+  <section class="hero" aria-label="Introduction">
+    <div class="term">
+      <div class="term-bar" aria-hidden="true">
+        <span class="term-dot term-dot-red"></span><span class="term-dot term-dot-yellow"></span><span class="term-dot term-dot-green"></span>
+        <span class="term-title">~/eportfolio — bash</span>
+      </div>
+      <div class="term-body">
+        <p class="term-cmd"><span class="ps1" aria-hidden="true">$</span>whoami</p>
+        <p class="term-name">{{ site.author | escape }}</p>
+        {%- if page.tagline %}
+        <p class="term-out">{{ page.tagline | escape }}</p>
+        {%- endif %}
+        <p class="term-cmd"><span class="ps1" aria-hidden="true">$</span>ls ./portfolio</p>
+        <ul class="term-ls">
+          {%- for path in site.header_pages -%}
+            {%- assign my_page = site.pages | where: "path", path | first -%}
+            {%- if my_page.title -%}
+            <li><a href="{{ my_page.url | relative_url }}">{{ my_page.title | downcase | replace: " ", "-" | escape }}/</a></li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+        <p class="term-cmd"><span class="ps1" aria-hidden="true">$</span><span class="cursor" aria-hidden="true"></span></p>
+      </div>
+    </div>
+  </section>
+
+  {%- if page.title %}
+  <p class="post-path" aria-hidden="true"><span class="ps1">$</span>cat {{ page.title | downcase | replace: " ", "-" | escape }}.md</p>
+  <h1 class="page-heading">{{ page.title | escape }}</h1>
+  {%- endif %}
+
+  <div class="post-content">
+    {{ content }}
+  </div>
+
+  {%- if site.posts.size > 0 -%}
+    <h2 class="post-list-heading">{{ page.list_title | default: "Posts" }}</h2>
+    <ul class="post-list">
+      {%- for post in site.posts -%}
+      <li>
+        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+        <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+      </li>
+      {%- endfor -%}
+    </ul>
+  {%- endif -%}
+</div>

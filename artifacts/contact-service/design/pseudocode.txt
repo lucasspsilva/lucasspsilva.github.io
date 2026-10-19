@@ -1,0 +1,23 @@
+START
+Connect to MongoDB
+IF the database does not exist
+    Create database and contact collection
+END IF
+User logs in
+Check user permissions
+IF user has permission
+    Allow access to contact list
+    IF user adds a contact
+        Insert contact into MongoDB
+    ELSE IF user updates a contact
+        Update contact in MongoDB
+    ELSE IF user deletes a contact
+        Delete contact from MongoDB
+    ELSE IF user views contacts
+        Retrieve contacts from MongoDB
+    END IF
+ELSE
+    Deny access
+END IF
+Close database connection
+END

@@ -1,0 +1,20 @@
+<footer class="site-footer h-card">
+  <data class="u-url" href="{{ "/" | relative_url }}"></data>
+
+  <div class="wrapper footer-inner">
+    <p class="footer-cmd"><span class="ps1" aria-hidden="true">$</span>whoami</p>
+    <p class="footer-out"><span class="p-name">{{ site.author | escape }}</span> · {{ site.description | escape }}</p>
+
+    <p class="footer-cmd"><span class="ps1" aria-hidden="true">$</span>contact --list</p>
+    <ul class="footer-links">
+      {%- if site.email -%}
+      <li><a class="u-email" href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+      {%- endif -%}
+      {%- if site.github_username -%}
+      <li><a href="https://github.com/{{ site.github_username }}">github.com/{{ site.github_username }}</a></li>
+      {%- endif -%}
+    </ul>
+
+    <p class="footer-meta">© {{ site.time | date: "%Y" }} {{ site.author | escape }} · built with Jekyll · hosted on GitHub Pages</p>
+  </div>
+</footer>
